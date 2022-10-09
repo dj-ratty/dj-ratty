@@ -24,6 +24,8 @@ jobs:
         python-version: "3.9"
     - name: Run main
       run: python beau_progress/generate_img.py
+      env: 
+        BEAUFORCEUPDATEIMG: ${{ inputs.beauforceupdateimg }}
     - name: Commit changes
       uses: EndBug/add-and-commit@v9
       with:
