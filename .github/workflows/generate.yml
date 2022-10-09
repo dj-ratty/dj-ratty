@@ -1,0 +1,28 @@
+name: Generate New Images
+
+on:
+  schedule: 
+    - cron: '59 23 */3 * *'
+  workflow_dispatch:
+
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python 3.9
+      uses: actions/setup-python@v3
+      with:
+        python-version: "3.9"
+    - name: Run main
+      run: python parser/main.py
+    - name: Commit changes
+      uses: EndBug/add-and-commit@v9
+      with:
+        add: 'beau_progress/*'
+        message: 'Generate New Stats'
+        default_author: github_actions
+        push: true
