@@ -83,7 +83,7 @@ def main():
     for chart_type in (Radial, Bar):
         urls_sizes = chart_type.generate_urls(data)
         for img_url, img_size in urls_sizes:
-            filename = chart_type.type + f"_({'x'.join(tuple(map(str, img_size)))})" + ".png"
+            filename = chart_type.type + f"_{'x'.join(tuple(map(str, img_size)))}" + ".png"
             save_img_from_url(img_url, os.path.join(IMG_DIR, filename))
 
 
