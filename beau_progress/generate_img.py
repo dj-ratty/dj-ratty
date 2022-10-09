@@ -79,7 +79,7 @@ def main():
     if not os.path.exists(IMG_DIR):
         os.makedirs(IMG_DIR)
 
-    data = {"data": {"datasets": [{"label": "Ru Translated", "data": [new["translate_ru"]["percent"]]}]}}
+    data = {"data": {"datasets": [{"backgroundColor": "%23C74ABB", "label": "Ru Translated", "data": [new["translate_ru"]["percent"]]}]}}
     for chart_type in (Radial, Bar):
         urls_sizes = chart_type.generate_urls(data)
         for img_url, img_size in urls_sizes:
