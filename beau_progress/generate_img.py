@@ -10,7 +10,10 @@ BASE_URL = "https://quickchart.io/chart?bkg=transparent&f=png&w={width}&h={heigh
 ROOT_DIR = os.path.dirname(__file__)
 JSON_PATH = os.path.join(ROOT_DIR, "stats.json")
 IMG_DIR = os.path.join(ROOT_DIR, "out")
-FORCE_UPDATE_IMG = True
+FORCE_UPDATE_IMG_STR = str(os.environ.get("BEAUFORCEUPDATEIMG", "0"))
+
+def get_force_update_img():
+    return FORCE_UPDATE_IMG_STR.lower() in ("1", "true", "y", "yes")
 
 @dataclass
 class Chart:
@@ -67,7 +70,7 @@ def main():
 
     if old != False:
         new = save_lens_to_json(orig_urls, russ_urls, not_save=True)
-        if old == new and FORCE_UPDATE_IMG != True:
+        if old == new and get_force_update_img() != True:
             return
         save_lens_to_json(orig_urls, russ_urls)
     else:
