@@ -71,6 +71,8 @@ def main():
     if old != False:
         new = save_lens_to_json(orig_urls, russ_urls, not_save=True)
         if old["translate_ru"]["percent"] == new["translate_ru"]["percent"] and get_force_update_img() != True:
+            if old != new:
+                save_lens_to_json(orig_urls, russ_urls)
             return
         save_lens_to_json(orig_urls, russ_urls)
     else:
