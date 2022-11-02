@@ -2,7 +2,7 @@ name: Generate New Images
 
 on:
   schedule: 
-    - cron: '59 23 */3 * *'
+    - cron: '10 00 2/3 * *'
   workflow_dispatch:
     inputs:
       beauforceupdateimg:
