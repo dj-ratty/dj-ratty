@@ -26,7 +26,7 @@ class Chart:
 
 
 Radial = Chart(type="radialGauge", sizes=((64, 64), (128, 128), (256, 256)))
-Bar = Chart(type="progressBar", sizes=((64, 16), (128, 32), (256, 64)))
+Bar = Chart(type="progressBar", sizes=((64, 16), (128, 32), (256, 64), (256, 32)))
 
 
 def get_json_from_url(url):
