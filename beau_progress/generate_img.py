@@ -2,7 +2,6 @@ import os
 import json
 import urllib.request
 from dataclasses import dataclass
-from math import ceil
 
 ORIGINAL_URL = "https://raw.githubusercontent.com/dj-ratty/beau-redirect/master/parts/en.json"
 TRANSLATE_RU_URL = "https://raw.githubusercontent.com/dj-ratty/beau-redirect/master/parts/ru.json"
@@ -42,7 +41,7 @@ def save_img_from_url(url, filename):
 def get_int_percent_from_dict_lens(a, b):
     if len(a) < len(b):
         a, b = b, a
-    return ceil((len(b) / len(a)) * 100)
+    return int((len(b) / len(a)) * 100)
 
 
 def get_lens_from_json():
